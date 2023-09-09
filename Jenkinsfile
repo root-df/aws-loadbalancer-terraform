@@ -18,7 +18,7 @@ pipeline {
                 // Generate and save the Terraform plan
                 sh 'terraform plan -out=tfplan.txt'
                 sh 'terraform plan -no-color > tfplan-review.txt'
-                sh 'cat tfplan.txt'
+                sh 'cat tfplan-review.txt'
             }
         }
         stage('Review of TF Plan - Approval before TF Apply') {
