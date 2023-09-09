@@ -21,7 +21,7 @@ pipeline {
             post {
                 success {
                     // Prompt for approval
-                    input(message: 'Review the Terraform plan. Do you approve?', submitter: 'user')
+                    input(message: 'Review the Terraform plan. Do you approve?', submitter: 'devops')
                 }
             }
         }
