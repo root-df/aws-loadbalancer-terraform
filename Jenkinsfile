@@ -18,11 +18,11 @@ pipeline {
                 // Generate and save the Terraform plan
                 sh 'terraform plan -out=tfplan.txt'
             }
-            post {
-                success {
-                    // Prompt for approval
-                    input(message: 'Review the Terraform plan. Do you approve?', submitter: 'devops')
-                }
+        }
+        stage('Review of TF Plan - Approval before TF Apply') {
+            steps {
+                // Prompt for approval before the build starts
+                input(message: 'Review the Terraform plan before build. Do you approve?', submitter: 'user')
             }
         }
         stage('Terraform Apply') {
