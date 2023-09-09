@@ -16,13 +16,19 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 // Generate and save the Terraform plan
-                sh 'terraform plan -out=tfplan'
+                sh 'terraform plan -out=tfplan.txt'
+            }
+            post {
+                success {
+                    // Prompt for approval
+                    input(message: 'Review the Terraform plan. Do you approve?', submitter: 'user')
+                }
             }
         }
         stage('Terraform Apply') {
             steps {
                 // Apply the Terraform plan
-                sh 'terraform applyy -auto-approve tfplan'
+                sh 'terraform applyy -auto-approve tfplan.txt'
             }
         }
         stage('Terraform Destroy') {
