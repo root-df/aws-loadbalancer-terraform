@@ -22,7 +22,7 @@ pipeline {
         stage('Terraform Apply') {
             steps {
                 // Apply the Terraform plan
-                sh 'terraform apply -auto-approve tfplan'
+                #sh 'terraform apply -auto-approve tfplan'
             }
         }
         stage('Terraform Destroy') {
@@ -31,7 +31,7 @@ pipeline {
             }
             steps {
                 // Destroy resources if the build fails.
-                sh 'terraform destroy -auto-approve'
+                #sh 'terraform destroy -auto-approve'
             }
         }
     }
