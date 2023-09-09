@@ -4,7 +4,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from GitHub
-                git branch: 'main', url: 'https://github.com/root-df/app-in-jenkins.git'
+                git branch: 'main', url: 'https://github.com/root-df/aws-loadbalancer-terraform.git'
             }
         }
         stage('Terraform Init') {
