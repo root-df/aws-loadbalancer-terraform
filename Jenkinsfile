@@ -30,7 +30,7 @@ pipeline {
                 expression { currentBuild.resultIsBetterOrEqualTo('FAILURE') }
             }
             steps {
-                // Destroy resources if the build fails
+                // Destroy resources if the build fails.
                 sh 'terraform destroy -auto-approve'
             }
         }
