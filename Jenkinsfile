@@ -28,7 +28,7 @@ pipeline {
         stage('Terraform Apply') {
             steps {
                 // Apply the Terraform plan
-                sh 'terraform applyy -auto-approve tfplan.txt'
+                sh 'terraform apply -auto-approve tfplan.txt'
             }
         }
         stage('Terraform Destroy') {
@@ -37,7 +37,7 @@ pipeline {
             }
             steps {
                 // Destroy resources if the build fails.
-                sh 'terraform destroyy -auto-approve'
+                sh 'terraform destroy -auto-approve'
             }
         }
     }
