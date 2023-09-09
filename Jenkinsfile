@@ -16,8 +16,8 @@ pipeline {
         stage('Terraform Plan') {
             steps {
                 // Generate and save the Terraform plan
-                //sh 'terraform plan -out=tfplan.txt'
-                sh 'terraform plan -no-color > tfplan.txt'
+                sh 'terraform plan -out=tfplan.txt'
+                sh 'terraform plan -no-color > tfplan-review.txt'
                 sh 'cat tfplan.txt'
             }
         }
