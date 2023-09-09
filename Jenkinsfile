@@ -17,6 +17,7 @@ pipeline {
             steps {
                 // Generate and save the Terraform plan
                 sh 'terraform plan -out=tfplan.txt'
+                sh 'cat tfplan.txt'
             }
         }
         stage('Review of TF Plan - Approval before TF Apply') {
