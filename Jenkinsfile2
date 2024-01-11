@@ -33,5 +33,14 @@ pipeline {
                 sh 'terraform apply -auto-approve tfplan.txt'
             }
         }
+        stage('Terraform Destroy') {
+            when {
+                expression { currentBuild.resultIsBetterOrEqualTo('FAILURE') }
+            }
+            steps {
+                // Destroy resources if the build fails.
+                sh 'terraform destroy -auto-approve'
+            }
+        }
     }
 }
