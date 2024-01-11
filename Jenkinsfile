@@ -39,7 +39,7 @@ pipeline {
             }
             steps {
                 // Destroy resources if the build fails.
-                sh 'terraform destroy -auto-approve'
+                //sh 'terraform destroy -auto-approve'
             }
         }
     }
